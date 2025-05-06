@@ -4,3 +4,4 @@ Files:
 <br>DT_jRPG_Levels.bt is to edit Experience needed to Level Up<br/>
 DT_DT_Balancing_mainCharacterSkills.bt is to edit Skill Damage Multiplier Value<br/>
 DT_Balancing_BattleDifficultySettings.bt is to edit Parry/Dodge timing duration<br/>
+DT_Balancing_Luminas.bt is to edit Lumina Effect<br/>
