@@ -2,5 +2,5 @@ This is a 010 editor template to edit Clair Obscure Expedition 33 Game files Unr
 
 Files:
 <br>DT_jRPG_Levels.bt is to edit Experience needed to Level Up<br/>
-DT_DT_Balancing_mainCharacterSkills.bt is to edit Skill Damage Multiplier Value
-DT_Balancing_BattleDifficultySettings.bt is to edit Parry/Dodge timing duration
+DT_DT_Balancing_mainCharacterSkills.bt is to edit Skill Damage Multiplier Value<br/>
+DT_Balancing_BattleDifficultySettings.bt is to edit Parry/Dodge timing duration<br/>
