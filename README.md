@@ -2,3 +2,4 @@ This is a 010 editor template to edit Clair Obscure Expedition 33 Game files Unr
 
 Files:
 DT_jRPG_Levels.bt is to edit Experience needed to Level Up
+DT_DT_Balancing_mainCharacterSkills.bt is to edit Skill Damage Multiplier Value
