@@ -6,3 +6,4 @@ DT_DT_Balancing_mainCharacterSkills.bt is to edit Character Skill Damage Multipl
 DT_Balancing_BattleDifficultySettings.bt is to edit Parry/Dodge timing duration<br/>
 DT_Balancing_Luminas.bt is to edit Lumina Effect<br/>
 DT_Balancing_EnemySkills.bt is to edit Enemy Skill Damage Multiplier<br/>
+DT_Merchant_CleaIsland.bt is to edit Merchant Inventory Item<br/>
