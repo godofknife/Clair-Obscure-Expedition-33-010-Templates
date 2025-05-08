@@ -6,63 +6,51 @@
 typedef struct
 {
   SetRandomBackColor();
+  byte Unknown[10];
   double TimeFrameDuration <name = "Time Frame Duration">;
-  u16 Type;
-  u32 field08;
-  u32 field0C;
-} Unknown <optimize=false>;
-
-typedef struct
-{
-  SetRandomBackColor();
-  double TimeFrameDuration <name = "Time Frame Duration">;
-  u16 Type;
-  u32 field08;
-  u32 field0C;
 } DodgeEasyImmuneDuration <optimize=false>;
 
 typedef struct
 {
   SetRandomBackColor();
+  byte Unknown[10];
   double TimeFrameDuration <name = "Time Frame Duration">;
-  u16 Type;
-  u32 field08;
-  u32 field0C;
 } DodgeNormalImmuneDuration <optimize=false>;
 
 typedef struct
 {
   SetRandomBackColor();
+  byte Unknown[10];
   double TimeFrameDuration <name = "Time Frame Duration">;
-  u16 Type;
-  u32 field08;
-  u32 field0C;
 } DodgeHardImmuneDuration <optimize=false>;
 
 typedef struct
 {
   SetRandomBackColor();
+  byte Unknown[10];
   double TimeFrameDuration <name = "Time Frame Duration">;
-  u16 Type;
-  u32 field08;
-  u32 field0C;
 } ParryEasyImmuneDuration <optimize=false>;
 
 typedef struct
 {
   SetRandomBackColor();
+  byte Unknown[10];
   double TimeFrameDuration <name = "Time Frame Duration">;
-  u16 Type;
-  u32 field08;
-  u32 field0C;
 } ParryNormalImmuneDuration <optimize=false>;
+
+typedef struct
+{
+  SetRandomBackColor();
+  byte Unknown[10];
+  double TimeFrameDuration <name = "Time Frame Duration">;
+} ParryHardImmuneDuration <optimize=false>;
 
 SetBackColor( 0x880000 );
 
 ushort PointerSegmentSize <hidden=true>;
 ushort ValueCount <hidden=true>;
 
-FSeek(0x2DE);
+FSeek(0x2E2);
 
 // Compute the number of complete 14-byte entries available
 local int dataSize = FileSize() - FTell();
@@ -71,10 +59,10 @@ local int numEntries = dataSize / 0x12;
 local uint i = 0;
 local int j = 0;
 
-Unknown UnknownList;
+u32 TotalData;
 DodgeEasyImmuneDuration DodgeEasyImmuneDurationList;
 DodgeNormalImmuneDuration DodgeNormalImmuneDurationList;
 DodgeHardImmuneDuration DodgeHardImmuneDurationList;
 ParryEasyImmuneDuration ParryEasyImmuneDurationList;
 ParryNormalImmuneDuration ParryNormalImmuneDurationList;
-double ParryHardImmuneDuration1;
+ParryHardImmuneDuration ParryHardImmuneDurationList;

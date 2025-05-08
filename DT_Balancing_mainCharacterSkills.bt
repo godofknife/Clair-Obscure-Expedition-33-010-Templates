@@ -6,16 +6,17 @@
 typedef struct
 {
   SetRandomBackColor();
+  u32 SkillID <name = "Skill ID">;
+  u32 field04;
+  u16 field08;
   double MultiplierValue <name = "Multiplier Value">;
-  u16 SkillID;
-  u32 field08;
-  u32 field0C;
 } SkillMultiplier <optimize=false>;
 
 typedef struct
 {
-  ubyte field00;
+
 u16 SkillID <name = "Skill ID">;
+  ubyte field00;
 u32 MultiplierValue <name = "Multiplier Value">;
 u32 field07;
 } ZeroSkillMultiplier <optimize=false>;
@@ -25,7 +26,7 @@ SetBackColor( 0x880000 );
 ushort PointerSegmentSize <hidden=true>;
 ushort ValueCount <hidden=true>;
 
-FSeek(0x7720);
+FSeek(0x7712);
 
 // Compute the number of complete 14-byte entries available
 local int dataSize = FileSize() - FTell();
@@ -33,6 +34,8 @@ local int numEntries = dataSize / 0x12;
 
 local uint i = 0;
 local int j = 0;
+
+u32 TotalData;
 
 for ( i = 0; i <= 114; i++ )
 {
@@ -70,11 +73,9 @@ for ( i = 368; i <= 371; i++ )
 
 ZeroSkillMultiplier ZeroSkillMultiplierList;
 
-for ( i = 372; i <= 745; i++ )
+for ( i = 372; i <= 746; i++ )
 {
   SetBackColor( ( i % 2 ) * 0x440000 + 0x880000 );
   SkillMultiplier SkillMultiplierList<read="use ID - 745">;
   j++;
 }
-
-double MultiplierSkill746;

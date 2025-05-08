@@ -17,10 +17,11 @@ SetBackColor( 0x880000 );
 ushort PointerSegmentSize <hidden=true>;
 ushort ValueCount <hidden=true>;
 
-FSeek(0x63A);
+FSeek(0x636);
 
 // Compute the number of complete 14-byte entries available
 local int dataSize = FileSize() - FTell();
 local int numEntries = dataSize / 0x0E;
 
+u32 TotalData;
 ExperienceLevel ExperienceLevelNeeded[numEntries] <name="Level">;
