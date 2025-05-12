@@ -8,3 +8,4 @@ DT_Balancing_Luminas.bt is to edit Lumina Effect<br/>
 DT_Balancing_EnemySkills.bt is to edit Enemy Skill Damage Multiplier<br/>
 DT_Merchant_CleaIsland.bt is to edit Merchant Inventory Item in Flying Manor<br/>
 DT_EnemyArchetype_Hard.bt is to edit Enemy Status in Hard Mode<br/>
+DT_GestralRace_RewardTimes.bt is to edit Gestral Race Time Mini-game<br/>
