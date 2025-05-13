@@ -37,7 +37,7 @@ SetBackColor( 0x880000 );
 ushort PointerSegmentSize <hidden=true>;
 ushort ValueCount <hidden=true>;
 
-FSeek(0x4AF);
+FSeek(0x331);
 
 // Compute the number of complete 14-byte entries available
 local int dataSize = FileSize() - FTell();
@@ -47,19 +47,22 @@ local uint i = 0;
 local int j = 0;
 
 u32 TotalData;
-for ( i = 0; i <= 6; i++ )
+MerchantData MerchantDataList<read="FaceSciel_OldConcept">;
+MerchantData MerchantDataList<read="FaceSciel_FrenchBob">;
+/* for ( i = 0; i <= 0; i++ )
 {
   SetBackColor( ( i % 2 ) * 0x440000 + 0x880000 );
-  MerchantData MerchantDataList<read="use ID - 6">;
+  MerchantData MerchantDataList<read="use ID - 0">;
   j++;
 }
 
-for ( i = 7; i <= 17; i++ )
+for ( i = 1; i <= 1; i++ )
 {
   SetBackColor( ( i % 2 ) * 0x440000 + 0x880000 );
-  MerchantData2 MerchantData2List<read="use ID - 17">;
+  MerchantData2 MerchantData2List<read="use ID - 6">;
   j++;
-}
+} */
+
 
 /* local uint i = 0;
 local int j = 0;

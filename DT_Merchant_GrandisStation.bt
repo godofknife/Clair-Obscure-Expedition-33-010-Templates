@@ -37,7 +37,7 @@ SetBackColor( 0x880000 );
 ushort PointerSegmentSize <hidden=true>;
 ushort ValueCount <hidden=true>;
 
-FSeek(0x4AF);
+FSeek(0x403);
 
 // Compute the number of complete 14-byte entries available
 local int dataSize = FileSize() - FTell();
@@ -54,10 +54,10 @@ for ( i = 0; i <= 6; i++ )
   j++;
 }
 
-for ( i = 7; i <= 17; i++ )
+for ( i = 7; i <= 10; i++ )
 {
   SetBackColor( ( i % 2 ) * 0x440000 + 0x880000 );
-  MerchantData2 MerchantData2List<read="use ID - 17">;
+  MerchantData2 MerchantData2List<read="use ID - 10">;
   j++;
 }
 
