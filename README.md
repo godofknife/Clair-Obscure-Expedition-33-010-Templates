@@ -1,7 +1,8 @@
-This is a 010 editor template to edit Clair Obscure Expedition 33 Game files Unreal Engine 5 version 5.4
+This is a 010 editor template to edit Clair Obscure Expedition 33 Game files Unreal Engine 5 version 5.4. This only works for Zen version UASSET, not legacy.
 
 Files:
 
+BP_BattleDamages.bt is to edit the base damage cap. 9999 is the standard<br/>
 DT_Balancing_mainCharacterSkills.bt is to edit Character Skill Damage Multiplier Value<br/>
 DT_Balancing_BattleDifficultySettings.bt is to edit Parry/Dodge timing duration<br/>
 DT_Balancing_Luminas.bt is to edit Lumina Effect<br/>
@@ -12,6 +13,7 @@ DT_EnemyArchetype_EasyHard.bt is to edit the Enemy Status in Easy and Hard Diffi
 DT_EnemyArchetype_Normal.bt is to edit the Enemy Status in Normal Difficulty<br/>
 DT_Equipment_ItemQuantityPerWeaponUpgrade.bt is to edit how many materials needed to upgrade per level <br/>
 DT_GestralRace_RewardTimes.bt is to edit Gestral Race Time Mini-game<br/>
+DT_InventoryItemTypeMetadatas.bt is to edit how many items can you stack<br/>
 DT_jRPG_Levels.bt is to edit Experience needed to Level Up<br/>
 DT_LootTable_UpgradeItems_XXXX.bt is to edit the chance dropped upgrade item from Encounter <br/>
 DT_Merchant_WM_XXX.bt is to edit the Merchant Shop item in World Map <br/>
