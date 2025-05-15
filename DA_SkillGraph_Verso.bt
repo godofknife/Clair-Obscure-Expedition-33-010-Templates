@@ -1,0 +1,103 @@
+//---------------------------------------------
+// Includes
+//---------------------------------------------
+#include "common/include.h"
+
+typedef struct
+{
+    u32 field00;
+	u32 field04;
+	byte field08;
+	u16 SkillCost <name="Skill Cost">;
+	byte field0B;
+	byte IsStartingSkill <name="Is it Starting Skill?">;
+	u16 field0D;
+	byte field0E;
+	double positionx <name="Icon Position X">;
+	double positiony <name="Icon Position Y">;
+} NotStartingSkill <optimize=false>;
+
+typedef struct
+{
+	u32 field00;
+	u32 field04;
+	byte field08;
+	byte IsStartingSkill <name="Is it Starting Skill?">;
+	u16 field0A;
+	byte field0C;
+	double positionx <name="Icon Position X">;
+	double positiony <name="Icon Position Y">;
+} StartingSkill <optimize=false>;
+
+typedef struct
+{
+	u32 field00;
+	u32 field04;
+	byte field08;
+	byte IsStartingSkill <name="Is it Starting Skill?">;
+	u16 field0A;
+	u32 field0C;
+	u32 field10;
+	u32 IsSecret<name="Is it Secret?">;
+	byte field18;
+	double positionx <name="Icon Position X">;
+	double positiony <name="Icon Position Y">;
+} GradientSkill <optimize=false>;
+
+SetBackColor( 0x880000 );
+
+ushort PointerSegmentSize <hidden=true>;
+ushort ValueCount <hidden=true>;
+
+FSeek(0x1014);
+
+// Compute the number of complete 14-byte entries available
+local int dataSize = FileSize() - FTell();
+local int numEntries = dataSize / 0x12;
+
+local uint i = 0;
+local int j = 0;
+
+u32 TotalData;
+StartingSkill StartingSkillList <read="Skill Combo">;
+NotStartingSkill NotStartingSkillList <read="Quick Strike">;
+GradientSkill GradientSkillList <read="Sabotage">;
+NotStartingSkill NotStartingSkillList <read="Paradigm Shift">;
+NotStartingSkill NotStartingSkillList <read="Blitz">;
+NotStartingSkill NotStartingSkillList <read="Overcharge">;
+NotStartingSkill NotStartingSkillList <read="Perfect Recovery">;
+StartingSkill StartingSkillList <read="From Fire">;
+NotStartingSkill NotStartingSkillList <read="Speedburst">;
+NotStartingSkill NotStartingSkillList <read="Leadership">;
+NotStartingSkill NotStartingSkillList <read="Purification">;
+NotStartingSkill NotStartingSkillList <read="Follow Up">;
+GradientSkill GradientSkillList <read="Angels Eyes">;
+NotStartingSkill NotStartingSkillList <read="Powerful">;
+NotStartingSkill NotStartingSkillList <read="New 4.0">;
+NotStartingSkill NotStartingSkillList <read="Phantom Stars">;
+NotStartingSkill NotStartingSkillList <read="Marking Shot">;
+NotStartingSkill NotStartingSkillList <read="Ascending Assault">;
+NotStartingSkill NotStartingSkillList <read="Perfect Break">;
+NotStartingSkill NotStartingSkillList <read="Strike Storm">;
+NotStartingSkill NotStartingSkillList <read="Berserk Slash">;
+NotStartingSkill NotStartingSkillList <read="Steeled Strike">;
+NotStartingSkill NotStartingSkillList <read="Radiant Slash">;
+GradientSkill GradientSkillList <read="Verso Striker">;
+NotStartingSkill NotStartingSkillList <read="Endbringer">;
+NotStartingSkill NotStartingSkillList <read="Defiant Strike">;
+NotStartingSkill NotStartingSkillList <read="Burden">;
+/* for ( i = 0; i <= 387; i++ )
+{
+  SetBackColor( ( i % 2 ) * 0x440000 + 0x880000 );
+  EnemySkills EnemySkillsList<read="use ID - 387">;
+  j++;
+}
+
+ZeroSkillMultiplier ZeroSkillMultiplierList;
+
+for ( i = 388; i <= 642; i++ )
+{
+  SetBackColor( ( i % 2 ) * 0x440000 + 0x880000 );
+  EnemySkills EnemySkillsList<read="use ID - 642">;
+  j++;
+} */

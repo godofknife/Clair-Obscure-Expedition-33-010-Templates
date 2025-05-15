@@ -1,0 +1,151 @@
+//---------------------------------------------
+// Includes
+//---------------------------------------------
+#include "common/include.h"
+
+typedef struct
+{
+    u32 field00;
+	u32 field04;
+	byte field08;
+	u16 SkillCost <name="Skill Cost">;
+	byte field0B;
+	byte IsStartingSkill <name="Is it Starting Skill?">;
+	u16 field0D;
+	byte field0E;
+	double positionx <name="Icon Position X">;
+	double positiony <name="Icon Position Y">;
+} NotStartingSkill <optimize=false>;
+
+typedef struct
+{
+    u32 field00;
+	u32 field04;
+	byte field08;
+	u16 SkillCost <name="Skill Cost">;
+	byte field0B;
+	byte IsStartingSkill <name="Is it Starting Skill?">;
+	u16 field0D;
+	u32 field0F;
+	u32 field13;
+	u32 field17;
+	byte IsSecret <name="Is it Secret?">;
+	double positionx <name="Icon Position X">;
+	double positiony <name="Icon Position Y">;
+} NotStartingSkill1 <optimize=false>;
+
+typedef struct
+{
+	u32 field00;
+	u32 field04;
+	byte field08;
+	byte IsStartingSkill <name="Is it Starting Skill?">;
+	u16 field0A;
+	byte field0C;
+	double positionx <name="Icon Position X">;
+	double positiony <name="Icon Position Y">;
+} StartingSkill <optimize=false>;
+
+typedef struct
+{
+	u32 field00;
+	u32 field04;
+	byte field08;
+	byte IsStartingSkill <name="Is it Starting Skill?">;
+	u16 field0A;
+	byte field0C;
+	u32 field0D;
+	u32 field12;
+	u16 field16;
+	byte field18;
+	byte IsSecret <name="Is it Secret?">;
+	double positionx <name="Icon Position X">;
+	double positiony <name="Icon Position Y">;
+} StartingSkill1 <optimize=false>;
+
+typedef struct
+{
+	u32 field00;
+	u32 field04;
+	byte field08;
+	byte SkillCost <name="Skill Cost?">;
+	u16 IsStartingSkill <name="Is it Starting Skill?">;
+	byte field0C;
+	u32 field0D;
+	u32 field12;
+	u16 field16;
+	byte field18;
+	u16 field19;
+	byte field1B;
+	byte IsSecret <name="Is it Secret?">;
+	double positionx <name="Icon Position X">;
+	double positiony <name="Icon Position Y">;
+} SecretSkill <optimize=false>;
+
+typedef struct
+{
+	u32 field00;
+	u32 field04;
+	byte field08;
+	byte IsStartingSkill <name="Is it Starting Skill?">;
+	u16 field0A;
+	u32 field0C;
+	u32 field10;
+	u32 field14;
+	byte IsSecret<name="Is it Secret?">;
+	double positionx <name="Icon Position X">;
+	double positiony <name="Icon Position Y">;
+} GradientSkill <optimize=false>;
+
+SetBackColor( 0x880000 );
+
+ushort PointerSegmentSize <hidden=true>;
+ushort ValueCount <hidden=true>;
+
+FSeek(0xCAD);
+
+// Compute the number of complete 14-byte entries available
+local int dataSize = FileSize() - FTell();
+local int numEntries = dataSize / 0x12;
+
+local uint i = 0;
+local int j = 0;
+
+u32 TotalData;
+NotStartingSkill NotStartingSkillList <read="Powerful">;
+StartingSkill StartingSkillList <read="Lumiere Assault">;
+NotStartingSkill NotStartingSkillList <read="From Fire">;
+NotStartingSkill NotStartingSkillList <read="Perfect Recovery">;
+NotStartingSkill NotStartingSkillList <read="Marking Shot">;
+NotStartingSkill NotStartingSkillList <read="Perfect Break">;
+NotStartingSkill NotStartingSkillList <read="Strikestorm">;
+StartingSkill StartingSkillList <read="Unleash Charge/Overcharge">;
+NotStartingSkill1 NotStartingSkill1List <read="Blitz">;
+NotStartingSkill1 NotStartingSkill1List <read="Combo 1">;
+NotStartingSkill1 NotStartingSkill1List <read="Lightholder">;
+NotStartingSkill1 NotStartingSkill1List <read="Phantom Stars">;
+NotStartingSkill1 NotStartingSkill1List <read="Ascending Assault">;
+NotStartingSkill1 NotStartingSkill1List <read="Leadership">;
+NotStartingSkill1 NotStartingSkill1List <read="From Fire">;
+NotStartingSkill1 NotStartingSkill1List <read="Follow Up">;
+NotStartingSkill1 NotStartingSkill1List <read="Defiant Strike">;
+NotStartingSkill1 NotStartingSkill1List <read="Quickstrike">;
+NotStartingSkill1 NotStartingSkill1List <read="Paradigm Shift">;
+NotStartingSkill1 NotStartingSkill1List <read="Purification">;
+NotStartingSkill1 NotStartingSkill1List <read="Steeled Strike">;
+NotStartingSkill1 NotStartingSkill1List <read="Radiant Strike">;
+/* for ( i = 0; i <= 387; i++ )
+{
+  SetBackColor( ( i % 2 ) * 0x440000 + 0x880000 );
+  EnemySkills EnemySkillsList<read="use ID - 387">;
+  j++;
+}
+
+ZeroSkillMultiplier ZeroSkillMultiplierList;
+
+for ( i = 388; i <= 642; i++ )
+{
+  SetBackColor( ( i % 2 ) * 0x440000 + 0x880000 );
+  EnemySkills EnemySkillsList<read="use ID - 642">;
+  j++;
+} */

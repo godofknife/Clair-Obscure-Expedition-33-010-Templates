@@ -1,0 +1,128 @@
+//---------------------------------------------
+// Includes
+//---------------------------------------------
+#include "common/include.h"
+
+typedef struct
+{
+	u32 field00;
+	u32 field04;
+	byte field08;
+	byte IsStartingSkill <name="Is it Starting Skill?">;
+	u16 field0A;
+	byte field0C;
+	u32 field0D;
+	u32 field12;
+	u16 field16;
+	byte field18;
+	byte IsSecret <name="Is it Secret?">;
+	double positionx <name="Icon Position X">;
+	double positiony <name="Icon Position Y">;
+} StartingSkill <optimize=false>;
+
+typedef struct
+{
+	u32 field00;
+	u32 field04;
+	byte field08;
+	byte IsStartingSkill <name="Is it Starting Skill?">;
+	u16 field0A;
+	byte field0C;
+	double positionx <name="Icon Position X">;
+	double positiony <name="Icon Position Y">;
+} StartingSkill1 <optimize=false>;
+
+typedef struct
+{
+	u32 field00;
+	u32 field04;
+	byte field08;
+	byte IsStartingSkill <name="Is it Starting Skill?">;
+	u16 field0A;
+	u32 field0C;
+	u32 field10;
+	u32 field14;
+	byte IsSecret <name="Is it Secret?">;
+	double positionx <name="Icon Position X">;
+	double positiony <name="Icon Position Y">;
+} GradientSkill <optimize=false>;
+
+SetBackColor( 0x880000 );
+
+ushort PointerSegmentSize <hidden=true>;
+ushort ValueCount <hidden=true>;
+
+FSeek(0x1F66);
+
+// Compute the number of complete 14-byte entries available
+local int dataSize = FileSize() - FTell();
+local int numEntries = dataSize / 0x12;
+
+local uint i = 0;
+local int j = 0;
+
+u32 TotalData;
+StartingSkill StartingSkillList <read="Transfo_Lancelier">;
+StartingSkill StartingSkillList <read="Transfo_DuallistStormBlood">;
+StartingSkill StartingSkillList <read="Transfo_TroubadourBuff">;
+StartingSkill StartingSkillList <read="Transfo_BraseleurHammerSmash">;
+StartingSkill StartingSkillList <read="Transfo_JarCombo">;
+StartingSkill StartingSkillList <read="Transfo_AbbestMelee">;
+StartingSkill StartingSkillList <read="Transfo_BenisseurMortar">;
+StartingSkill StartingSkillList <read="Transfo_BrulerAnchorsmash">;
+StartingSkill1 StartingSkill1List <read="Transfo_ChalierRelentlessSword">;
+StartingSkill StartingSkillList <read="Transfo_DanseuseWingDance">;
+StartingSkill StartingSkillList <read="Transfo_DemineurThunderStrike">;
+StartingSkill StartingSkillList <read="Transfo_FlyingCultistSlash">;
+StartingSkill StartingSkillList <read="Transfo_GaultCombo">;
+StartingSkill StartingSkillList <read="Transfo_GlaiseEarthquakes">;
+StartingSkill StartingSkillList <read="Transfo_LusterCombo">;
+StartingSkill StartingSkillList <read="Transfo_PelerinFreshAir">;
+StartingSkill StartingSkillList <read="Transfo_PortierCrashingDown">;
+StartingSkill StartingSkillList <read="Transfo_PotatoBagMageThunderThrows">;
+StartingSkill StartingSkillList <read="Transfo_PotatobagRangerThunderEstoc">;
+StartingSkill StartingSkillList <read="Transfo_PotatobagTankSlam">;
+StartingSkill StartingSkillList <read="Transfo_PotierBuff">;
+StartingSkill StartingSkillList <read="Transfo_RamasseurBonk">;
+StartingSkill StartingSkillList <read="Transfo_SaplingAbsorption">;
+StartingSkill StartingSkillList <read="Transfo_CrulerShield">;
+StartingSkill StartingSkillList <read="Transfo_MoissonneuseVendange">;
+StartingSkill StartingSkillList <read="Transfo_BoucheclierShield">;
+StartingSkill StartingSkillList <read="Transfo_ContorsionnisteAngryBlast">;
+StartingSkill StartingSkillList <read="Transfo_ChapelierAxeSlash">;
+StartingSkill StartingSkillList <read="Transfo_BalletCharm">;
+StartingSkill StartingSkillList <read="Transfo_HexgaCombo">;
+StartingSkill StartingSkillList <read="Transfo_OrphelinBuff">;
+StartingSkill1 StartingSkill1List <read="Transfo_StalactMeleeCombo">;
+StartingSkill StartingSkillList <read="Transfo_ChevaliereBAoECombo">;
+StartingSkill StartingSkillList <read="Transfo_ChevaliereCAC">;
+StartingSkill StartingSkillList <read="Transfo_ChevaliereCAoECombo">;
+StartingSkill StartingSkillList <read="Transfo_PotatobagBoss_FireShots">;
+GradientSkill GradientSkillList <read="Skill_BreakPoint">;
+StartingSkill StartingSkillList <read="Transfo_EchassierCombo">;
+StartingSkill StartingSkillList <read="Transfo_GrosseTeteWrecking">;
+StartingSkill StartingSkillList <read="Transfo_ObscurCombo">;
+StartingSkill StartingSkillList <read="Transfo_ClairEnfeeble">;
+StartingSkill StartingSkillList <read="Transfo_LampmasterSwordOfLight">;
+StartingSkill StartingSkillList <read="Transfo_RocherHammering">;
+StartingSkill StartingSkillList <read="Transfo_CreationFromTheVoid">;
+StartingSkill StartingSkillList <read="Transfo_AberrationBurningLight">;
+GradientSkill GradientSkillList <read="Skill_MightyStrike">;
+GradientSkill GradientSkillList <read="Skill_Sanctuary">;
+StartingSkill StartingSkillList <read="Transfo_HeavyCultistBloodSword">;
+StartingSkill StartingSkillList <read="Transfo_EvequeSpear">;
+/* for ( i = 0; i <= 387; i++ )
+{
+  SetBackColor( ( i % 2 ) * 0x440000 + 0x880000 );
+  EnemySkills EnemySkillsList<read="use ID - 387">;
+  j++;
+}
+
+ZeroSkillMultiplier ZeroSkillMultiplierList;
+
+for ( i = 388; i <= 642; i++ )
+{
+  SetBackColor( ( i % 2 ) * 0x440000 + 0x880000 );
+  EnemySkills EnemySkillsList<read="use ID - 642">;
+  j++;
+} */

@@ -1,0 +1,138 @@
+//---------------------------------------------
+// Includes
+//---------------------------------------------
+#include "common/include.h"
+
+typedef struct
+{
+    u32 field00;
+	u32 field04;
+	byte field08;
+	u16 SkillCost <name="Skill Cost">;
+	byte field0B;
+	byte IsStartingSkill <name="Is it Starting Skill?">;
+	u16 field0D;
+	byte field0E;
+	double positionx <name="Icon Position X">;
+	double positiony <name="Icon Position Y">;
+} NotStartingSkill <optimize=false>;
+
+typedef struct
+{
+	u32 field00;
+	u32 field04;
+	byte field08;
+	byte IsStartingSkill <name="Is it Starting Skill?">;
+	u16 field0A;
+	byte field0C;
+	double positionx <name="Icon Position X">;
+	double positiony <name="Icon Position Y">;
+} StartingSkill <optimize=false>;
+
+typedef struct
+{
+	u32 field00;
+	u32 field04;
+	byte field08;
+	byte IsStartingSkill <name="Is it Starting Skill?">;
+	u16 field0A;
+	byte field0C;
+	u32 field0D;
+	u32 field12;
+	u16 field16;
+	byte field18;
+	byte IsSecret <name="Is it Secret?">;
+	double positionx <name="Icon Position X">;
+	double positiony <name="Icon Position Y">;
+} StartingSkill1 <optimize=false>;
+
+typedef struct
+{
+	u32 field00;
+	u32 field04;
+	byte field08;
+	byte SkillCost <name="Skill Cost?">;
+	u16 IsStartingSkill <name="Is it Starting Skill?">;
+	byte field0C;
+	u32 field0D;
+	u32 field12;
+	u16 field16;
+	byte field18;
+	u16 field19;
+	byte field1B;
+	byte IsSecret <name="Is it Secret?">;
+	double positionx <name="Icon Position X">;
+	double positiony <name="Icon Position Y">;
+} SecretSkill <optimize=false>;
+
+typedef struct
+{
+	u32 field00;
+	u32 field04;
+	byte field08;
+	byte IsStartingSkill <name="Is it Starting Skill?">;
+	u16 field0A;
+	u32 field0C;
+	u32 field10;
+	u32 field14;
+	byte IsSecret<name="Is it Secret?">;
+	double positionx <name="Icon Position X">;
+	double positiony <name="Icon Position Y">;
+} GradientSkill <optimize=false>;
+
+SetBackColor( 0x880000 );
+
+ushort PointerSegmentSize <hidden=true>;
+ushort ValueCount <hidden=true>;
+
+FSeek(0xE7F);
+
+// Compute the number of complete 14-byte entries available
+local int dataSize = FileSize() - FTell();
+local int numEntries = dataSize / 0x12;
+
+local uint i = 0;
+local int j = 0;
+
+u32 TotalData;
+StartingSkill StartingSkillList <read="Grim Prediction">;
+NotStartingSkill NotStartingSkillList <read="Speed Up">;
+NotStartingSkill NotStartingSkillList <read="Sealed Fate">;
+NotStartingSkill NotStartingSkillList <read="Our Sacrifice">;
+NotStartingSkill NotStartingSkillList <read="Final Path">;
+NotStartingSkill NotStartingSkillList <read="Plentiful Harvest">;
+NotStartingSkill NotStartingSkillList <read="Spectral Sweep">;
+NotStartingSkill NotStartingSkillList <read="Searing Bond">;
+NotStartingSkill NotStartingSkillList <read="Harvest">;
+NotStartingSkill NotStartingSkillList <read="Card Weaver">;
+NotStartingSkill NotStartingSkillList <read="Dark Absorbtion">;
+StartingSkill StartingSkillList <read="Foretelling">;
+NotStartingSkill NotStartingSkillList <read="Shadow Targeting">;
+NotStartingSkill NotStartingSkillList <read="Shadow Drop">;
+NotStartingSkill NotStartingSkillList <read="Postponed">;
+NotStartingSkill NotStartingSkillList <read="Bad Omen">;
+GradientSkill GradientSkillList <read="Shadow Bringer">;
+GradientSkill GradientSkillList <read="End Slice">;
+NotStartingSkill NotStartingSkillList <read="Dark Wave">;
+NotStartingSkill NotStartingSkillList <read="Firing Shadow">;
+NotStartingSkill NotStartingSkillList <read="Intervention">;
+GradientSkill GradientSkillList <read="Doom">;
+NotStartingSkill NotStartingSkillList <read="Dark Cleansing">;
+NotStartingSkill NotStartingSkillList <read="All Set">;
+NotStartingSkill NotStartingSkillList <read="Fortunes Fury">;
+NotStartingSkill NotStartingSkillList <read="Twilight Dance">;
+/* for ( i = 0; i <= 387; i++ )
+{
+  SetBackColor( ( i % 2 ) * 0x440000 + 0x880000 );
+  EnemySkills EnemySkillsList<read="use ID - 387">;
+  j++;
+}
+
+ZeroSkillMultiplier ZeroSkillMultiplierList;
+
+for ( i = 388; i <= 642; i++ )
+{
+  SetBackColor( ( i % 2 ) * 0x440000 + 0x880000 );
+  EnemySkills EnemySkillsList<read="use ID - 642">;
+  j++;
+} */

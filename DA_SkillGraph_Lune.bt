@@ -1,0 +1,137 @@
+//---------------------------------------------
+// Includes
+//---------------------------------------------
+#include "common/include.h"
+
+typedef struct
+{
+    u32 field00;
+	u32 field04;
+	byte field08;
+	u16 SkillCost <name="Skill Cost">;
+	byte field0B;
+	byte IsStartingSkill <name="Is it Starting Skill?">;
+	u16 field0D;
+	byte field0E;
+	double positionx <name="Icon Position X">;
+	double positiony <name="Icon Position Y">;
+} NotStartingSkill <optimize=false>;
+
+typedef struct
+{
+	u32 field00;
+	u32 field04;
+	byte field08;
+	byte IsStartingSkill <name="Is it Starting Skill?">;
+	u16 field0A;
+	byte field0C;
+	double positionx <name="Icon Position X">;
+	double positiony <name="Icon Position Y">;
+} StartingSkill <optimize=false>;
+
+typedef struct
+{
+	u32 field00;
+	u32 field04;
+	byte field08;
+	byte IsStartingSkill <name="Is it Starting Skill?">;
+	u16 field0A;
+	byte field0C;
+	u32 field0D;
+	u32 field12;
+	u16 field16;
+	byte field18;
+	byte IsSecret <name="Is it Secret?">;
+	double positionx <name="Icon Position X">;
+	double positiony <name="Icon Position Y">;
+} StartingSkill1 <optimize=false>;
+
+typedef struct
+{
+	u32 field00;
+	u32 field04;
+	byte field08;
+	byte SkillCost <name="Skill Cost?">;
+	u16 IsStartingSkill <name="Is it Starting Skill?">;
+	byte field0C;
+	u32 field0D;
+	u32 field12;
+	u16 field16;
+	byte field18;
+	u16 field19;
+	byte field1B;
+	byte IsSecret <name="Is it Secret?">;
+	double positionx <name="Icon Position X">;
+	double positiony <name="Icon Position Y">;
+} SecretSkill <optimize=false>;
+
+typedef struct
+{
+	u32 field00;
+	u32 field04;
+	byte field08;
+	byte IsStartingSkill <name="Is it Starting Skill?">;
+	u16 field0A;
+	u32 field0C;
+	u32 field10;
+	u32 field14;
+	byte IsSecret<name="Is it Secret?">;
+	double positionx <name="Icon Position X">;
+	double positiony <name="Icon Position Y">;
+} GradientSkill <optimize=false>;
+
+SetBackColor( 0x880000 );
+
+ushort PointerSegmentSize <hidden=true>;
+ushort ValueCount <hidden=true>;
+
+FSeek(0xE32);
+
+// Compute the number of complete 14-byte entries available
+local int dataSize = FileSize() - FTell();
+local int numEntries = dataSize / 0x12;
+
+local uint i = 0;
+local int j = 0;
+
+u32 TotalData;
+NotStartingSkill NotStartingSkillList <read="Wildfire">;
+NotStartingSkill NotStartingSkillList <read="Earthquake">;
+NotStartingSkill NotStartingSkillList <read="Earth Spike">;
+StartingSkill StartingSkillList <read="Ice Gust">;
+NotStartingSkill NotStartingSkillList <read="Revitalization">;
+NotStartingSkill NotStartingSkillList <read="Thunderfall">;
+NotStartingSkill NotStartingSkillList <read="Mayhem">;
+StartingSkill StartingSkillList <read="Immolation">;
+GradientSkill GradientSkillList <read="Tree of Life">;
+NotStartingSkill NotStartingSkillList <read="Stormcaller">;
+NotStartingSkill NotStartingSkillList <read="Thermal Transfer">;
+GradientSkill GradientSkillList <read="Skybreak">;
+NotStartingSkill NotStartingSkillList <read="Lightning Dance">;
+GradientSkill GradientSkillList <read="Tremor">;
+NotStartingSkill NotStartingSkillList <read="Crippling Tsunami">;
+NotStartingSkill NotStartingSkillList <read="Healing Light">;
+NotStartingSkill NotStartingSkillList <read="Hell">;
+NotStartingSkill NotStartingSkillList <read="Rebirth">;
+NotStartingSkill NotStartingSkillList <read="Electrify">;
+NotStartingSkill NotStartingSkillList <read="Fire Rage">;
+NotStartingSkill NotStartingSkillList <read="Typhoon">;
+NotStartingSkill NotStartingSkillList <read="Crustal Crush">;
+NotStartingSkill NotStartingSkillList <read="Terraquake">;
+NotStartingSkill NotStartingSkillList <read="Elemental Trick">;
+NotStartingSkill NotStartingSkillList <read="Elemental Genesis">;
+/* for ( i = 0; i <= 387; i++ )
+{
+  SetBackColor( ( i % 2 ) * 0x440000 + 0x880000 );
+  EnemySkills EnemySkillsList<read="use ID - 387">;
+  j++;
+}
+
+ZeroSkillMultiplier ZeroSkillMultiplierList;
+
+for ( i = 388; i <= 642; i++ )
+{
+  SetBackColor( ( i % 2 ) * 0x440000 + 0x880000 );
+  EnemySkills EnemySkillsList<read="use ID - 642">;
+  j++;
+} */
