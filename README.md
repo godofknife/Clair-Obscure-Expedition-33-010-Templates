@@ -3,6 +3,7 @@ This is a 010 editor template to edit Clair Obscure Expedition 33 Game files Unr
 Files:
 
 BP_BattleDamages.bt is to edit the base damage cap. 9999 is the standard<br/>
+DA_SkillGraph_CHARACTERNAME.bt is to edit Skill Cost to unlock<br/>
 DT_Balancing_mainCharacterSkills.bt is to edit Character Skill Damage Multiplier Value<br/>
 DT_Balancing_BattleDifficultySettings.bt is to edit Parry/Dodge timing duration<br/>
 DT_Balancing_Luminas.bt is to edit Lumina Effect<br/>
