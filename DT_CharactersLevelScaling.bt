@@ -1,0 +1,59 @@
+//---------------------------------------------
+// Includes
+//---------------------------------------------
+#include "common/include.h"
+
+typedef struct
+{
+  SetRandomBackColor();
+  byte field[99];
+} LevelScaling0 <optimize=false>;
+
+typedef struct
+{
+  SetRandomBackColor();
+  u32 field00;
+  u32 DataNumber;
+  u16 field08;
+  u32 Level;
+  u32 field0E;
+  u32 field12;
+  u32 field16;
+  u32 field1A;
+  double HP;
+  u32 field22;
+  u32 field26;
+  double UnknownStatus;
+  u32 field2E;
+  u32 field32;
+  double UnknownStatus;
+  u32 field3A;
+  u32 field3E;
+  double UnknownStatus;
+  u32 field46;
+  u32 field4A;
+  double UnknownStatus;
+} LevelScaling1 <optimize=false>;
+
+SetBackColor( 0x880000 );
+
+ushort PointerSegmentSize <hidden=true>;
+ushort ValueCount <hidden=true>;
+
+FSeek(0x295);
+
+// Compute the number of complete 14-byte entries available
+local int dataSize = FileSize() - FTell();
+local int numEntries = dataSize / 0x66;
+
+local uint i = 0;
+local int j = 0;
+
+u32 TotalData;
+LevelScaling0 LevelScaling0List;
+for ( i = 0; i <= 98; i++ )
+{
+  SetBackColor( ( i % 2 ) * 0x440000 + 0x880000 );
+  LevelScaling1 LevelScaling1List<read="use ID - 98">;
+  j++;
+}
